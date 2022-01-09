@@ -4,8 +4,10 @@ import routes from './config/routes'
 import { reducer } from './context/auth/reducer'
 import { initialUserState } from './interfaces/user'
 import Loading from './components/Loading'
-import { isIfStatement } from 'typescript'
+import { collapseTextChangeRangesAcrossMultipleVersions, isIfStatement } from 'typescript'
 import AuthRoute from './components/AuthRoute'
+import { UserContextProvider } from './context/auth/context'
+import { validate } from './modules/auth'
 
 export interface IApplicationProps {}
 
@@ -24,9 +26,12 @@ const Application: React.FunctionComponent< IApplicationProps > = props => {
     },[])
 
     const checkStorageForCredentials = () => {
+
         setAuthStage('Checking Credentials')
-        const token = localStorage.getItem('token')
-        if(token === null) 
+        const AuthToken = document.cookie.split(';')[0]
+        const Token = AuthToken.split('=')[1]
+
+        if(Token === null) 
         {
             userDispatch({ type: 'LOGOUT' , payload: initialUserState })
             setAuthStage('No credential found')
@@ -36,12 +41,20 @@ const Application: React.FunctionComponent< IApplicationProps > = props => {
             },1000)
         }
         else 
-        {
-            setAuthStage('Credential found, validating')
-
-            setTimeout(() => {
-                setLoading(false)
-            },1000)
+        {   
+            validate( (error, user) => {
+                if( error )
+                {
+                    console.log('Invalid Token')
+                    setLoading(false)
+                }
+                else 
+                {   
+                    userDispatch({type:'LOGIN', payload: user.message})
+                    setLoading(false)
+                }
+            } ) 
+  
         }
         
     }
@@ -57,35 +70,37 @@ const Application: React.FunctionComponent< IApplicationProps > = props => {
     }
 
     return (
-        <Routes>
-           
-            { routes.map((route,index) => {
-                if(route.auth) 
-                {
+        <UserContextProvider value = { userContextValue }>
+            <Routes>
+            
+                { routes.map((route,index) => {
+                    if(route.auth) 
+                    {
+                        return (
+                            
+                            <Route
+                                key = { index }
+                                path = { route.path }
+                                element = { 
+                                    <AuthRoute>
+                                        <route.component />
+                                    </AuthRoute>
+                                    }
+                            />
+                        
+                        )
+                    }
                     return (
-                       
+                        
                         <Route
                             key = { index }
                             path = { route.path }
-                            element = { 
-                                <AuthRoute>
-                                    <route.component />
-                                </AuthRoute>
-                                }
+                            element = { <route.component /> }
                         />
-                     
                     )
-                }
-                return (
-                    
-                    <Route
-                        key = { index }
-                        path = { route.path }
-                        element = { <route.component /> }
-                    />
-                )
-            })}
-        </Routes>
+                })}
+            </Routes>
+        </UserContextProvider>
     )
 }
 

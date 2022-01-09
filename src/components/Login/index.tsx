@@ -1,16 +1,20 @@
 
 
-import React,{ useState } from 'react'
+import React,{ useState,useContext } from 'react'
 import { Button } from 'react-bootstrap'
-
+import UserContext from '../../context/auth/context'
 export interface ILoginProps {}
 
 const Login: React.FunctionComponent<ILoginProps> = props => {
+
+
+    const AuthContext = useContext(UserContext)
 
     const [ userInput,setUserInput ] = useState({
         email: '',
         password: ''
     })
+    const [ error,setError ] = useState('')
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
@@ -46,14 +50,16 @@ const Login: React.FunctionComponent<ILoginProps> = props => {
                 if(res.status === 200)
                 {
                     res.json().then((json) => {
-                        console.log(json)
+                        
+                        AuthContext.userDispatch({ type: 'LOGIN', payload: json.message })
+
                     })
                 }
                 else 
                 {   
                     
                     res.json().then((json) => {
-                        console.log(json, 'no network')
+                        setError(json.message)
                     })
                 }
             })
@@ -62,6 +68,7 @@ const Login: React.FunctionComponent<ILoginProps> = props => {
 
     return (
         <div className = 'd-flex flex-column gap-2'>
+            <label className = 'text-danger' >{ error }</label>
             <label>Login</label>
             <div className = 'd-flex flex-column gap-2'>
                 <input 

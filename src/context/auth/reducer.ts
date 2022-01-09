@@ -1,6 +1,7 @@
 import { IUserState,IUserAction, initialUserState } from "../../interfaces/user"
 
 export const reducer = (state:IUserState,action:IUserAction) => {
+
     let user = action.payload.user
     let token = action.payload.token
 
@@ -8,10 +9,13 @@ export const reducer = (state:IUserState,action:IUserAction) => {
     {
         case 'LOGIN':
             {
-                localStorage.setItem('token',token)
+            
+                document.cookie = `token=${token}; max-age=86400;`
+
                 return {
                     user,
-                    token
+                    token,
+                    auth: true
                 }
             }
         case 'LOGOUT': 
