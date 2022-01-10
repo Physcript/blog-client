@@ -20,7 +20,7 @@ export const reducer = (state:IUserState,action:IUserAction) => {
             }
         case 'LOGOUT': 
             {
-                localStorage.removeItem('token')
+                document.cookie = 'token=;'
                 return initialUserState
             }
         case 'AUTHENTICATE':

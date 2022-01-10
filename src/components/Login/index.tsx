@@ -3,11 +3,12 @@
 import React,{ useState,useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import UserContext from '../../context/auth/context'
+import { useNavigate } from 'react-router-dom'
 export interface ILoginProps {}
 
 const Login: React.FunctionComponent<ILoginProps> = props => {
 
-
+    const Navi = useNavigate()
     const AuthContext = useContext(UserContext)
 
     const [ userInput,setUserInput ] = useState({
@@ -52,7 +53,7 @@ const Login: React.FunctionComponent<ILoginProps> = props => {
                     res.json().then((json) => {
                         
                         AuthContext.userDispatch({ type: 'LOGIN', payload: json.message })
-
+                        Navi('/')
                     })
                 }
                 else 

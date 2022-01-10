@@ -45,7 +45,6 @@ const Application: React.FunctionComponent< IApplicationProps > = props => {
             validate( (error, user) => {
                 if( error )
                 {
-                    console.log('Invalid Token')
                     setLoading(false)
                 }
                 else 

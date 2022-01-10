@@ -20,7 +20,6 @@ export const validate = async (callback: (error: string | null, user: IUser | nu
                 {
                     res.json()
                         .then ( (json) => {
-                            console.log(json)
                             callback(null,json)
                         } )
                     
@@ -29,7 +28,6 @@ export const validate = async (callback: (error: string | null, user: IUser | nu
                 {
                     res.json()
                         .then ((json) => {
-                            console.log(json)
                             callback('Invalid',json)
                         })
                 }
