@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation'
 import Header from '../components/Header'
 
 import { Container } from 'react-bootstrap'
-import IBlog from '../interfaces/blog'
+import { IBlog } from '../interfaces/blog'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
 import BlogPreview from '../components/BlogPreview'
@@ -85,6 +85,7 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                                 _id={blog._id}
                                 title={blog.title}
                                 headline={blog.headline}
+                                content = {blog.content}
                                 createdAt={blog.createdAt}
                                 updatedAt={blog.updatedAt} 
                                 author={''}                          

@@ -1,10 +1,20 @@
 import IUser from "./user";
 
 
-export default interface IBlog {
+export interface IBlog {
     _id: string,
     title: string,
     author: string | IUser,
+    content: string,
+    headline: string,
+    picture?: string,
+    createdAt: string,
+    updatedAt: string,
+}
+
+export interface IEditBlogPage {
+    _id: string,
+    title: string,
     content: string,
     headline: string,
     picture?: string,

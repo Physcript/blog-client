@@ -11,11 +11,12 @@ export interface IBlogPreview {
     headline: string,
     author: string,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string,
+    content: string,
 }
 
 const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
-    const { _id,title,headline,createdAt,updatedAt } = props
+    const { _id,title,content,headline,createdAt,updatedAt } = props
     return (
         <Card className = 'border-0'>
             <Card.Body className = 'p-0  '>
@@ -26,6 +27,7 @@ const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
                 > 
                     <h1><strong>{ title }</strong></h1>
                     <h3>{ headline }</h3> <br />
+                    <p>{ content }</p>
                 </Link>
                 {
                     createdAt !== updatedAt ?
@@ -33,6 +35,7 @@ const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
                     :
                         <p>Posted by: {  } at { new Date(updatedAt).toLocaleString() }</p>
                 }
+                <hr />
 
             </Card.Body>
         </Card>
