@@ -8,6 +8,7 @@ import UserContext from '../context/auth/context'
 import IPageProps from '../interfaces/pages'
 
 import Login from '../components/Login'
+import Register from '../components/Register'
 
 const LoginPage: React.FunctionComponent<IPageProps> = props => {
     const [ authenticating,setAuthenticating ] = useState<boolean>(false)
@@ -30,7 +31,13 @@ const LoginPage: React.FunctionComponent<IPageProps> = props => {
         )
     }
     return (
-        <p>Register Page</p>
+      <div>
+          <Container>
+              <CenterPiece>
+                <Register />
+              </CenterPiece>
+          </Container>
+      </div>
     )
 } 
 export default LoginPage
