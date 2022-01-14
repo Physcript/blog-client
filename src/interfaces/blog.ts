@@ -13,6 +13,7 @@ export interface IBlog {
 }
 
 export interface IEditBlogPage {
+    author: string;
     _id: string,
     title: string,
     content: string,

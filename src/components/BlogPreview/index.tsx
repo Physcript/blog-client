@@ -1,8 +1,8 @@
 
 
 
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Card,Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export interface IBlogPreview {
@@ -13,10 +13,12 @@ export interface IBlogPreview {
     createdAt: string,
     updatedAt: string,
     content: string,
+    picture?: string,
 }
 
 const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
-    const { _id,title,content,headline,createdAt,updatedAt } = props
+    const { _id,title,content,headline,createdAt,updatedAt, author, picture } = props
+    
     return (
         <Card className = 'border-0'>
             <Card.Body className = 'p-0  '>
@@ -28,7 +30,11 @@ const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
                     <h1><strong>{ title }</strong></h1>
                     <h3>{ headline }</h3> <br />
                     <p>{ content }</p>
+
                 </Link>
+
+                <img src = { picture } />
+
                 {
                     createdAt !== updatedAt ?
                         <p>Updated by: {  } at { new Date(updatedAt).toLocaleString() }</p>

@@ -88,7 +88,8 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                                 content = {blog.content}
                                 createdAt={blog.createdAt}
                                 updatedAt={blog.updatedAt} 
-                                author={''}                          
+                                author={''}   
+                                picture={ blog.picture }                       
                             />
                         </div>
                     )   

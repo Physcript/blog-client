@@ -26,6 +26,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
         picture: '',
         createdAt: '',
         updatedAt: '',
+        author: '',
 
     })
 
@@ -151,6 +152,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
                     {
                         res.json().then((val) => {
                             setSuccess('Blog created')
+                            console.log(val)
                             setBlogInfo((blog) => ({
                                 ...blog,
                                 _id: val.message._id
