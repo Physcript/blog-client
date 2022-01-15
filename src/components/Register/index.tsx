@@ -24,7 +24,7 @@ const Register: React.FunctionComponent<IRegister> = props => {
 
     const registerHandler = () => {
         setLoading(true)
-        const url = 'https://blog-ts.herokuapp.com/create'
+        const url = 'https://blog-ts.herokuapp.com/api/create'
         const myData = {
             "name": regData.name,
             "email": regData.email,
