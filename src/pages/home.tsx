@@ -25,7 +25,7 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
 
     const GetAllBlog = async () => {
 
-        const url = 'http://localhost:1337/api/blog/'
+        const url = 'https://blog-ts.herokuapp.com/api/blog'
         
         const request = new Request (url,{
             method: 'GET',

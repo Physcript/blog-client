@@ -63,7 +63,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
     const getBlog = async () => {
 
-        const url = `http://localhost:1337/api/blog/${id}`
+        const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
         
         const request = new Request(url,{
             method: 'GET',
@@ -120,7 +120,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
     const deleteBlog = () => {
 
         
-        const url = `http://localhost:1337/api/blog/${id}`
+        const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
         
         const request = new Request(url,{
             method: 'DELETE',

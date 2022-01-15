@@ -33,7 +33,7 @@ const Login: React.FunctionComponent<ILoginProps> = props => {
         
         // setup fetch
         
-        const url = 'http://localhost:1337/api/login'
+        const url = 'https://blog-ts.herokuapp.com/api/login'
         const myData = {
             email: userInput.email,
             password: userInput.password

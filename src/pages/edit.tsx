@@ -47,7 +47,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
 
     const getBlog = async (id: string) => {
 
-        const url = `http://localhost:1337/api/blog/${id}`
+        const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
         
         const request = new Request(url,{
             method: 'GET',
@@ -118,7 +118,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
         setSuccess('')
         
 
-        const url = 'http://localhost:1337/api/blog/create'
+        const url = 'https://blog-ts.herokuapp.com/api/blog/create'
         const data = {
 
         }
@@ -193,7 +193,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
         setSuccess('')
         
 
-        const url = `http://localhost:1337/api/blog/update/${blogInfo._id}`
+        const url = `https://blog-ts.herokuapp.com/api/blog/update/${blogInfo._id}`
       
         //  PATCH NEED UPDATE ON USESTATE
         const toJson = {

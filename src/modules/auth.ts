@@ -4,7 +4,7 @@ import IUser from "../interfaces/user";
 
 export const validate = async (callback: (error: string | null, user: IUser | null | any) => void ) => {
     
-    const url = 'http://localhost:1337/api/auth'
+    const url = 'https://blog-ts.herokuapp.com/api/auth'
 
     const request = new Request(url,{
         method: 'GET',
