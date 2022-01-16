@@ -48,10 +48,10 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                     }
                     else 
                     {
-
-                    }   res.json().then( (val) => {
-                        setError('Unable to retrieve blog')
-                    } )
+                        res.json().then( (val) => {
+                            setError('Unable to retrieve blog')
+                        })
+                    }  
                 })
         }
         catch 
