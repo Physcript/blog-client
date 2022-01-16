@@ -9,8 +9,10 @@ export const reducer = (state:IUserState,action:IUserAction) => {
     {
         case 'LOGIN':
             {
-            
-                document.cookie = `token=${token}; max-age=86400;SameSite=Lax`
+                const currentTime = new Date().getTime()
+                const exp = currentTime + ( 60 * 60 * 24 * 1000 * 7)
+
+                document.cookie = `token=${token}; max-age=86400;SameSite=Lax; expires=${exp};`
 
                 return {
                     user,
