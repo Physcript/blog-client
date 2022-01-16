@@ -137,7 +137,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
         const request = new Request(url,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
+            credentials: 'true',
             body
         })
 
