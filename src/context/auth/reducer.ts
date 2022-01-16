@@ -10,7 +10,7 @@ export const reducer = (state:IUserState,action:IUserAction) => {
         case 'LOGIN':
             {
             
-                document.cookie = `token=${token}; max-age=86400;`
+                document.cookie = `token=${token}; max-age=86400;SameSite=Lax`
 
                 return {
                     user,
