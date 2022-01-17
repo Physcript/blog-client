@@ -70,6 +70,7 @@ const Register: React.FunctionComponent<IRegister> = props => {
         catch (error)
         {
             setError('Unable to register Conntection Error')
+            setLoading(false)
         }
 
     }
