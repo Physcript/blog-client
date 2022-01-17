@@ -36,6 +36,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
     const [ error,setError ] = useState<string>('')
     const [ loading,setLoading ] = useState<boolean>(true)
+    const [ realLoading,setRealLoading] = useState<boolean>(true)
  
 
     useEffect(() => {
@@ -55,7 +56,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         if(id !== '')
         {
             getBlog()
-            setLoading(false)
+            setRealLoading(false)
         }
         else
         {
@@ -106,7 +107,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
         finally 
         {
-            
+            setLoading(false)
         }
     }
 
@@ -157,7 +158,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
 
         
-    if(loading)
+    if(realLoading)
     {
         return (
             <Loading />
