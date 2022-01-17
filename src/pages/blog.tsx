@@ -119,6 +119,10 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
     const deleteBlog = () => {
 
+        if(user._id !== blogInfo._id) 
+        {
+            return 
+        }
         
         const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
         
