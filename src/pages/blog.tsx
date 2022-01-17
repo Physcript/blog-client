@@ -55,6 +55,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         if(id !== '')
         {
             getBlog()
+            setLoading(false)
         }
         else
         {
@@ -105,7 +106,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
         finally 
         {
-            setLoading(false)
+            
         }
     }
 
@@ -117,6 +118,8 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         {
             return 
         }
+        
+
         
         const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
         const token = document.cookie.split("=")[1]
@@ -161,8 +164,6 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         ) 
     }
 
-    setDButton(false)
-
     return (
         <Container>
             <Navigation />
@@ -179,7 +180,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
             { user._id === blogInfo.author ? 
                 <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { dbutton } >
+                    <Button className = 'btn btn-danger' onClick = { deleteBlog } >
                         Delete
                     </Button>
                 </div>
