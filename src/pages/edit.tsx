@@ -133,10 +133,10 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
         }
 
         const body = JSON.stringify(toJson)
-        console.log(document.cookie.split("=")[1])
+        const token = document.cookie.split("=")[1]
         const request = new Request(url,{
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', token: '' },
+            headers: { 'Content-Type': 'application/json', token } ,
             credentials: 'include',
             body
         })
