@@ -3,7 +3,7 @@
 import React,{ useState,useContext } from 'react'
 import { Button } from 'react-bootstrap'
 import UserContext from '../../context/auth/context'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 export interface ILoginProps {}
 
 const Login: React.FunctionComponent<ILoginProps> = props => {
