@@ -119,6 +119,11 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
     const deleteBlog = () => {
 
+        if( loading === true )
+        {
+            return
+        }
+        
         if(user._id !== blogInfo._id) 
         {
             return 
@@ -173,7 +178,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
             { user._id === blogInfo.author ? 
                 <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog }  disabled = { loading } >
+                    <Button className = 'btn btn-danger' onClick = { deleteBlog } >
                         Delete
                     </Button>
                 </div>
