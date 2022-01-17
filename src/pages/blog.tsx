@@ -177,7 +177,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
             { user._id === blogInfo.author ? 
                 <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { dbutton } >
+                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { loading } >
                         Delete
                     </Button>
                 </div>
