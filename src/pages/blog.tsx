@@ -19,6 +19,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
     const { user } = useContext(UserContext).userState
     const [ id,setId ] = useState<string>('')
     const [ blog,setBlog ] = useState<IBlog | null>(null)
+    const [ dbutton,setDButton ] = useState<boolean>(true)
 
     const [ blogInfo,setBlogInfo ] = useState<IEditBlogPage>({
 
@@ -64,10 +65,10 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
     const getBlog = async () => {
 
         const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
-        
+
         const request = new Request(url,{
             method: 'GET',
-            headers: {'Content-type': 'application/json'},
+            headers: {'Content-type': 'application/json' },
             credentials: 'include',
         })
 
@@ -119,21 +120,18 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
     const deleteBlog = () => {
 
-        if( loading === true )
-        {
-            return
-        }
-        
+     
         if(user._id !== blogInfo._id) 
         {
             return 
         }
         
         const url = `https://blog-ts.herokuapp.com/api/blog/${id}`
-        
+        const token = document.cookie.split("=")[1]
+
         const request = new Request(url,{
             method: 'DELETE',
-            headers: {'Content-type': 'application/json'},
+            headers: {'Content-type': 'application/json',token},
             credentials: 'include',
         })
 
@@ -178,7 +176,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
             { user._id === blogInfo.author ? 
                 <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog } >
+                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { dbutton } >
                         Delete
                     </Button>
                 </div>
