@@ -42,9 +42,9 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                     if(res.status === 200)
                     {
                         res.json().then( (val) => {
+                            console.log(val)
                             let blogs = val.message
                             blogs.sort((x: any,y: any) => y.updatedAt.localeCompare(x.updatedAt))
-                            console.log(blogs)
                             setBlog(blogs)
                         } )
                     }
