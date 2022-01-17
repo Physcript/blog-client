@@ -165,32 +165,37 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         ) 
     }
 
-    return (
-        <Container>
-            <Navigation />
-            <BlogPreview 
-                _id={blogInfo._id}
-                title={blogInfo.title}
-                headline={blogInfo.headline}
-                createdAt={blogInfo.createdAt}
-                updatedAt={blogInfo.createdAt}
-                content={blogInfo.content} 
-                author={ blogInfo.author } 
-                picture={ blogInfo.picture } />
+    else {
+        return (
+            <Container>
+                <Navigation />
+                <BlogPreview 
+                    _id={blogInfo._id}
+                    title={blogInfo.title}
+                    headline={blogInfo.headline}
+                    createdAt={blogInfo.createdAt}
+                    updatedAt={blogInfo.createdAt}
+                    content={blogInfo.content} 
+                    author={ blogInfo.author } 
+                    picture={ blogInfo.picture } />
+    
+    
+                { user._id === blogInfo.author ? 
+                    <div>
+                        <Button className = 'btn btn-danger' onClick = { deleteBlog } >
+                            Delete
+                        </Button>
+                    </div>
+                :
+                    <div>
+    
+                    </div> 
+                    }
+            </Container>
+        )
+    }
 
+   
+}
 
-            { user._id === blogInfo.author ? 
-                <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog } >
-                        Delete
-                    </Button>
-                </div>
-            :
-                <div>
-
-                </div> 
-                }
-        </Container>
-    )
-} 
 export default BlogPage
