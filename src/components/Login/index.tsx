@@ -90,6 +90,7 @@ const Login: React.FunctionComponent<ILoginProps> = props => {
                 onClick = { loginHandler }
             >Login
             </Button>
+            <Link to = '/'>Back</Link>
         </div>
     )
 }
