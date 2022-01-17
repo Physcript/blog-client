@@ -109,14 +109,6 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         }
     }
 
-    if(loading)
-    {
-        return (
-            <Loading />
-        ) 
-    }
-
-
 
     const deleteBlog = () => {
 
@@ -158,6 +150,15 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
             setLoading(false)
         }
 
+    }
+
+
+        
+    if(loading)
+    {
+        return (
+            <Loading />
+        ) 
     }
 
     return (
