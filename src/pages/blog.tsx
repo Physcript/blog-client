@@ -106,7 +106,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         finally 
         {
             setLoading(false)
-
+            setDButton(false)
         }
     }
 
