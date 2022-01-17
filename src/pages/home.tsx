@@ -34,7 +34,8 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
 
         })
 
-        try 
+        try
+
         {
             fetch(request)
                 .then((res) => {
@@ -43,6 +44,7 @@ const HomePage: React.FunctionComponent<IPageProps> = props => {
                         res.json().then( (val) => {
                             let blogs = val.message
                             blogs.sort((x: any,y: any) => y.updatedAt.localeCompare(x.updatedAt))
+                            console.log(blogs)
                             setBlog(blogs)
                         } )
                     }
