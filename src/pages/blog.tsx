@@ -106,6 +106,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
         finally 
         {
             setLoading(false)
+            setDButton(false)
         }
     }
 
@@ -177,7 +178,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
             { user._id === blogInfo.author ? 
                 <div>
-                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { loading } >
+                    <Button className = 'btn btn-danger' onClick = { deleteBlog } disabled = { dbutton } >
                         Delete
                     </Button>
                 </div>
