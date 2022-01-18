@@ -158,7 +158,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
 
 
     const updateHandler = () => {
-        Navi( `/blog/${blogInfo._id}`)
+        Navi( `/edit/${blogInfo._id}`)
     }
 
 
