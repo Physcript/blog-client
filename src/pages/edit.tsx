@@ -185,7 +185,7 @@ const EditPage: React.FunctionComponent<IPageProps> = props => {
 
 
     const editBlog = async () => {
-        if( blogInfo._id === '' || blogInfo.content === '' || blogInfo.headline === '' )
+        if(  blogInfo.title === '' || blogInfo.content === ''  )
         {
             setError('Please fill up the form')
             setSuccess('')
