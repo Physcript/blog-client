@@ -19,8 +19,6 @@ export interface IBlogPreview {
 
 const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
     const { _id,title,content,headline,createdAt,updatedAt, author, picture } = props
-    const { user } = useContext(UserContext).userState
-    console.log(user)
     return (
         <Card className = 'border-0'>
             <Card.Body className = 'p-0  '>
