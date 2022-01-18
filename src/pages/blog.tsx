@@ -157,6 +157,11 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
     }
 
 
+    const updateHandler = () => {
+        Navi( `/blog/${blogInfo._id}`)
+    }
+
+
         
     if(realLoading)
     {
@@ -186,7 +191,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
                             Delete
                         </Button>
 
-                        <Button className = 'btn btn-warning' >
+                        <Button className = 'btn btn-warning' onClick = { updateHandler } >
                             Update
                         </Button>
                     </div>
