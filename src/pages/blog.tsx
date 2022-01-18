@@ -186,7 +186,7 @@ const BlogPage: React.FunctionComponent<IPageProps> = props => {
                             Delete
                         </Button>
 
-                        <Button className = 'btn btn-warning' onClick = {  } >
+                        <Button className = 'btn btn-warning' >
                             Update
                         </Button>
                     </div>
