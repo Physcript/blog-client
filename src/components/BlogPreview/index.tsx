@@ -1,7 +1,8 @@
 
 
 
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import UserContext from '../../context/auth/context'
 import { Card,Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -18,7 +19,8 @@ export interface IBlogPreview {
 
 const BlogPreview: React.FunctionComponent<IBlogPreview> = props => {
     const { _id,title,content,headline,createdAt,updatedAt, author, picture } = props
-    
+    const { user } = useContext(UserContext).userState
+    console.log(user)
     return (
         <Card className = 'border-0'>
             <Card.Body className = 'p-0  '>
